@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Misha Stratan — videographer based in Vancouver. Real estate video, social content, event coverage, and branded films." />
+  <title>Misha Stratan — Videographer (Vancouver)</title>
+
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.09);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --border: rgba(255,255,255,0.14);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+      --focus: rgba(255,255,255,0.75);
+      --chip: rgba(255,255,255,0.08);
+      --chip2: rgba(255,255,255,0.12);
+      --accent: rgba(255,255,255,0.92);
+      --link: rgba(255,255,255,0.92);
+      --ok: rgba(60, 240, 150, 0.85);
+      --warn: rgba(255, 200, 60, 0.85);
+    }
+
+    [data-theme="light"]{
+      --bg: #f7f7f8;
+      --panel: rgba(0,0,0,0.04);
+      --panel2: rgba(0,0,0,0.06);
+      --text: rgba(0,0,0,0.88);
+      --muted: rgba(0,0,0,0.62);
+      --border: rgba(0,0,0,0.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.12);
+      --focus: rgba(0,0,0,0.7);
+      --chip: rgba(0,0,0,0.04);
+      --chip2: rgba(0,0,0,0.06);
+      --accent: rgba(0,0,0,0.9);
+      --link: rgba(0,0,0,0.88);
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 12% 5%, rgba(255,255,255,0.10), transparent 60%),
+                  radial-gradient(900px 600px at 88% 15%, rgba(255,255,255,0.08), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      letter-spacing: 0.2px;
+    }
+
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px; }
+
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.22), rgba(0,0,0,0.04));
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="light"] .topbar{
+      background: linear-gradient(to bottom, rgba(255,255,255,0.82), rgba(255,255,255,0.56));
+    }
+
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .brand{ display:flex; align-items:center; gap: 12px; min-width: 220px; }
+    .mark{
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, var(--panel2), transparent),
+        radial-gradient(12px 12px at 70% 30%, rgba(255,255,255,0.45), transparent 60%),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .brand h1{ margin: 0; font-size: 14px; letter-spacing: 0.6px; text-transform: uppercase; }
+    .brand p{ margin: 0; font-size: 12px; color: var(--muted); }
+
+    nav{ display:flex; align-items:center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .navlink{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .navlink:hover{
+      color: var(--text);
+      background: var(--panel);
+      border-color: var(--border);
+      text-decoration: none;
+    }
+    .actions{ display:flex; align-items:center; gap: 10px; min-width: 220px; justify-content: flex-end; }
+
+    .btn{
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .btn:hover{ background: var(--panel2); }
+    .btn:focus-visible, .navlink:focus-visible, input:focus-visible, textarea:focus-visible{
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+    .btn.primary{
+      background: var(--accent);
+      color: var(--bg);
+      border-color: transparent;
+    }
+    [data-theme="light"] .btn.primary{
+      background: rgba(0,0,0,0.88);
+      color: #fff;
+    }
+
+    .hero{ padding: 42px 0 18px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .kicker{ display:flex; align-items:center; gap: 8px; color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+    .dot{ width: 8px; height: 8px; border-radius: 999px; background: var(--text); opacity: 0.75; }
+
+    h2{ margin: 0 0 10px; font-size: 34px; line-height: 1.12; letter-spacing: 0.2px; }
+    .subtitle{ margin: 0 0 16px; color: var(--muted); font-size: 15px; max-width: 60ch; }
+
+    .chips{ display:flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; }
+    .chip{ border: 1px solid var(--border); background: var(--chip); padding: 7px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); }
+
+    .hero-cta{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+    .media{ display:grid; grid-template-rows: 1fr auto; gap: 12px; height: 100%; }
+    .media-box{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(12px 12px at 20% 30%, rgba(255,255,255,0.30), transparent 55%),
+        radial-gradient(20px 20px at 65% 25%, rgba(255,255,255,0.18), transparent 60%),
+        linear-gradient(135deg, var(--panel2), transparent),
+        var(--panel);
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+    }
+    .media-box::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.07) 0px,
+        rgba(255,255,255,0.07) 10px,
+        transparent 10px,
+        transparent 22px
+      );
+      opacity: 0.25;
+      pointer-events:none;
+    }
+    .media-label{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.22);
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      backdrop-filter: blur(10px);
+    }
+    [data-theme="light"] .media-label{
+      background: rgba(255,255,255,0.7);
+      color: rgba(0,0,0,0.82);
+    }
+
+    .social-row{ display:flex; gap: 10px; flex-wrap: wrap; }
+    .social{
+      flex: 1;
+      min-width: 140px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .social:hover{ background: var(--panel2); text-decoration: none; }
+
+    section{ scroll-margin-top: 90px; }
+    .section-head{
+      display:flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 26px;
+      margin-bottom: 12px;
+    }
+    .section-head h3{ margin: 0; font-size: 20px; letter-spacing: 0.2px; }
+    .section-head p{ margin: 0; color: var(--muted); font-size: 13px; max-width: 70ch; }
+
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+
+    .tile{
+      grid-column: span 4;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      overflow:hidden;
+      position:relative;
+      min-height: 170px;
+    }
+    .tile .ph{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 16px;
+      text-align:center;
+      background:
+        radial-gradient(10px 10px at 30% 30%, rgba(255,255,255,0.22), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,0.10), transparent),
+        var(--panel);
+    }
+    .tile .meta{
+      position:absolute;
+      left: 12px;
+      bottom: 12px;
+      right: 12px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+    }
+    [data-theme="light"] .tile .meta{
+      background: rgba(255,255,255,0.70);
+      color: rgba(0,0,0,0.82);
+    }
+
+    .service{
+      grid-column: span 4;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      box-shadow: 0 12px 35px rgba(0,0,0,0.14);
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 250px;
+    }
+    .service h4{ margin: 0; font-size: 16px; }
+    .service p{ margin: 0; color: var(--muted); font-size: 13px; }
+    .bullets{ margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    .bullets li{ margin: 6px 0; }
+    .service .foot{
+      margin-top: auto;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .contact-card{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-items{ display:grid; gap: 10px; margin-top: 12px; }
+    .contact-item{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+    }
+    .contact-item b{ font-size: 13px; }
+    .contact-item span{ color: var(--muted); font-size: 12px; }
+
+    form{ display:grid; gap: 10px; margin-top: 12px; }
+    label{ font-size: 12px; color: var(--muted); }
+    input, textarea{
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding: 12px 12px;
+      font-size: 14px;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    /* Netlify honeypot: keep accessible but hidden visually */
+    .hp{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px; height:1px;
+      overflow:hidden;
+    }
+
+    .notice{
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .notice.ok{ border-color: rgba(60,240,150,0.25); }
+    .notice.ok b{ color: var(--ok); }
+    .notice.warn{ border-color: rgba(255,200,60,0.22); }
+    .notice.warn b{ color: var(--warn); }
+
+    footer{
+      margin: 26px 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .actions, .brand{ min-width: auto; }
+      .tile{ grid-column: span 6; }
+      .service{ grid-column: span 6; }
+      .contact-grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px){
+      .topbar-inner{ padding: 12px 14px; }
+      .wrap{ padding: 18px 14px; }
+      h2{ font-size: 28px; }
+      .tile{ grid-column: span 12; }
+      .service{ grid-column: span 12; }
+      .social{ min-width: 120px; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="Site identity">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>Misha Stratan</h1>
+          <p>Videographer • Vancouver</p>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a class="navlink" href="#home">Home</a>
+        <a class="navlink" href="#gallery">Gallery</a>
+        <a class="navlink" href="#services">Services</a>
+        <a class="navlink" href="#contact">Contacts</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">
+          <span aria-hidden="true">◐</span>
+          <span id="themeText">Theme</span>
+        </button>
+        <a class="btn primary" href="#contact">Book a shoot</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="home" role="main">
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Professional video that sells, shares, and stays memorable.</span></div>
+          <h2>Videographer based in Vancouver.</h2>
+          <p class="subtitle">
+            <b>Slogan:</b> <span>Turn moments into marketing — crisp visuals, clean edits, and content built to perform.</span>
+          </p>
+
+          <div class="chips" aria-label="Quick highlights">
+            <span class="chip">Real Estate</span>
+            <span class="chip">Social Reels</span>
+            <span class="chip">Events</span>
+            <span class="chip">Brand Stories</span>
+            <span class="chip">Fast Turnaround</span>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#services">View services</a>
+            <a class="btn" href="#gallery">See work</a>
+            <a class="btn" href="mailto:hello@mishastratan.com">Email</a>
+          </div>
+        </div>
+
+        <div class="media">
+          <div class="media-box" aria-label="Featured reel placeholder">
+            <!-- Replace this with a <video> or <img> when ready -->
+            <div class="media-label">
+              <span aria-hidden="true">▶</span>
+              <span>Featured Reel — placeholder</span>
+            </div>
+          </div>
+
+          <div class="social-row" aria-label="Social links">
+            <!-- Replace href="#" with your real links -->
+            <a class="social" href="#" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">YouTube</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">Facebook</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">Telegram</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" aria-label="Gallery">
+      <div class="section-head">
+        <div>
+          <h3>Gallery</h3>
+          <p>Placeholders below — swap these tiles with your photos, thumbnails, or embedded videos.</p>
+        </div>
+      </div>
+
+      <div class="grid" aria-label="Gallery grid">
+        <div class="tile" role="group" aria-label="Photo placeholder 1">
+          <div class="ph">Photo Placeholder (e.g., still from a real estate shoot)</div>
+          <div class="meta"><span>Photo</span><span>Placeholder</span></div>
+        </div>
+        <div class="tile" role="group" aria-label="Photo placeholder 2">
+          <div class="ph">Photo Placeholder (e.g., brand product shot)</div>
+          <div class="meta"><span>Photo</span><span>Placeholder</span></div>
+        </div>
+        <div class="tile" role="group" aria-label="Photo placeholder 3">
+          <div class="ph">Photo Placeholder (e.g., event still)</div>
+          <div class="meta"><span>Photo</span><span>Placeholder</span></div>
+        </div>
+
+        <div class="tile" role="group" aria-label="Video placeholder 1">
+          <div class="ph">Video Placeholder (Reel / Short-form)</div>
+          <div class="meta"><span>Video</span><span>Placeholder</span></div>
+        </div>
+        <div class="tile" role="group" aria-label="Video placeholder 2">
+          <div class="ph">Video Placeholder (Real estate walkthrough)</div>
+          <div class="meta"><span>Video</span><span>Placeholder</span></div>
+        </div>
+        <div class="tile" role="group" aria-label="Video placeholder 3">
+          <div class="ph">Video Placeholder (Brand story / ad)</div>
+          <div class="meta"><span>Video</span><span>Placeholder</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-label="Services">
+      <div class="section-head">
+        <div>
+          <h3>Services</h3>
+          <p>Two–three popular packages, plus flexible add-ons. (You can rename anything.)</p>
+        </div>
+      </div>
+
+      <div class="grid" aria-label="Service cards">
+        <article class="service" aria-label="Service: Real Estate Video">
+          <h4>Real Estate Video</h4>
+          <p>Walkthroughs and highlight edits designed to sell the space fast.</p>
+          <ul class="bullets">
+            <li>Property walkthrough + detail shots</li>
+            <li>Agent intro/outro (optional)</li>
+            <li>Vertical cut for social (optional)</li>
+          </ul>
+          <div class="foot">
+            <span class="tag">Ideal for listings</span>
+            <a class="btn" href="#contact">Get a quote</a>
+          </div>
+        </article>
+
+        <article class="service" aria-label="Service: Social Reels & Short-Form">
+          <h4>Instagram Reels & Short-Form</h4>
+          <p>Fast, punchy edits built for attention and retention.</p>
+          <ul class="bullets">
+            <li>Reels / TikTok / Shorts-ready formats</li>
+            <li>Captions + pacing optimized for mobile</li>
+            <li>Batch filming options</li>
+          </ul>
+          <div class="foot">
+            <span class="tag">Best for creators & brands</span>
+            <a class="btn" href="#contact">Book a session</a>
+          </div>
+        </article>
+
+        <article class="service" aria-label="Service: Events & Highlights">
+          <h4>Events & Highlights</h4>
+          <p>Clean coverage + cinematic highlights for events of any size.</p>
+          <ul class="bullets">
+            <li>Corporate / private events</li>
+            <li>Highlight film + optional full coverage</li>
+            <li>Quick teasers for next-day posts</li>
+          </ul>
+          <div class="foot">
+            <span class="tag">Great for launches</span>
+            <a class="btn" href="#contact">Check availability</a>
+          </div>
+        </article>
+
+        <article class="service" aria-label="Service: Brand & Product Video">
+          <h4>Brand & Product Video</h4>
+          <p>Story-driven content for websites, ads, and campaigns.</p>
+          <ul class="bullets">
+            <li>Concept + shot list support</li>
+            <li>Product, lifestyle, and BTS</li>
+            <li>Multiple deliverables from one shoot</li>
+          </ul>
+          <div class="foot">
+            <span class="tag">Campaign-ready</span>
+            <a class="btn" href="#contact">Plan a shoot</a>
+          </div>
+        </article>
+
+        <article class="service" aria-label="Service: Music / Performance Video">
+          <h4>Music & Performance</h4>
+          <p>Live sessions, performances, or promo clips with impact.</p>
+          <ul class="bullets">
+            <li>Single-camera or multi-angle options</li>
+            <li>Audio sync support (as needed)</li>
+            <li>Vertical promos included (optional)</li>
+          </ul>
+          <div class="foot">
+            <span class="tag">For artists</span>
+            <a class="btn" href="#contact">Let’s talk</a>
+          </div>
+        </article>
+
+        <article class="service" aria-label="Service: Add-ons">
+          <h4>Add-ons</h4>
+          <p>Customize your package depending on the deliverables you need.</p>
+          <ul class="bullets">
+            <li>Drone footage (if available / permitted)</li>
+            <li>Subtitles, motion graphics, logo animation</li>
+            <li>Rush delivery + extra versions</li>
+          </ul>
+          <div class="foot">
+            <span class="tag">Flexible</span>
+            <a class="btn" href="#contact">Ask about add-ons</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contact" aria-label="Contacts">
+      <div class="section-head">
+        <div>
+          <h3>Contacts</h3>
+          <p>Netlify form enabled. Messages will appear in your Netlify dashboard (Forms).</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card" aria-label="Direct contact details">
+          <h4 style="margin:0;font-size:16px;">Reach out</h4>
+          <p style="margin:6px 0 0;color:var(--muted);font-size:13px;">
+            Tell me what you’re filming, the location, and your deadline — I’ll reply with next steps.
+          </p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div>
+                <b>Phone</b><br />
+                <span>Replace with your number</span>
+              </div>
+              <a class="btn" href="tel:+16045550123" aria-label="Call phone number">Call</a>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <b>Email</b><br />
+                <span>Replace with your email</span>
+              </div>
+              <a class="btn" href="mailto:hello@mishastratan.com" aria-label="Send email">Email</a>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <b>Location</b><br />
+                <span>Vancouver, BC</span>
+              </div>
+              <a class="btn" href="#home" aria-label="Back to top">Top</a>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="social" href="#" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">YouTube</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">Facebook</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">Telegram</a>
+            <a class="social" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="contact-card" aria-label="Contact form">
+          <h4 style="margin:0;font-size:16px;">Quick message</h4>
+          <p style="margin:6px 0 0;color:var(--muted);font-size:13px;">
+            This form submits to Netlify. You’ll see submissions in <b>Netlify → Site → Forms</b>.
+          </p>
+
+          <!-- Netlify Forms:
+            - name must match the hidden form-name value
+            - data-netlify enables processing
+            - netlify-honeypot adds spam protection
+            - action uses a query string so we can show an in-page success notice
+          -->
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/?sent=1#contact"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
+            <!-- Honeypot field -->
+            <p class="hp">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+
+            <div>
+              <label for="service">Service</label>
+              <input id="service" name="service" type="text" placeholder="Real estate / Reels / Event / Brand / Other" />
+            </div>
+
+            <div>
+              <label for="details">Project details</label>
+              <textarea id="details" name="details" placeholder="What do you need filmed? Where? When? Deliverables? Budget range (optional)?" required></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Send message</button>
+
+            <div id="successBox" class="notice ok" style="display:none;">
+              <b>Sent!</b> Thanks — I’ll reply as soon as possible.
+            </div>
+            <div class="notice warn">
+              <b>Tip:</b> On your first deploy, Netlify detects the form from the HTML. Make sure this page is deployed once before testing.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <span>© <span id="year"></span> Misha Stratan. All rights reserved.</span>
+      <span style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="#services">Services</a>
+        <span aria-hidden="true">·</span>
+        <a href="#gallery">Gallery</a>
+        <span aria-hidden="true">·</span>
+        <a href="#contact">Contacts</a>
+      </span>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      const txt = document.getElementById('themeText');
+      const year = document.getElementById('year');
+      const successBox = document.getElementById('successBox');
+
+      year.textContent = String(new Date().getFullYear());
+
+      // Theme: saved preference -> system -> default dark
+      const saved = localStorage.getItem('theme');
+      const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const initial = saved || (systemPrefersLight ? 'light' : 'dark');
+      root.setAttribute('data-theme', initial);
+      txt.textContent = (initial === 'light') ? 'Light' : 'Dark';
+
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        txt.textContent = (next === 'light') ? 'Light' : 'Dark';
+      });
+
+      // Show success message after Netlify redirect (?sent=1)
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('sent') === '1' && successBox) {
+        successBox.style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>
